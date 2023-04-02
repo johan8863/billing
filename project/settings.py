@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     # local
     'apps.items',
     'apps.customers',
+    'apps.kits',
 ]
 
 MIDDLEWARE = [
