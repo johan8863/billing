@@ -1,3 +1,9 @@
+"""customers admin"""
+
+# django
 from django.contrib import admin
 
-# Register your models here.
+# local
+from .models import Customer
+
+admin.site.register(Customer)
