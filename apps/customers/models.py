@@ -19,6 +19,9 @@ class Customer(models.Model):
     client_nit = models.CharField('NIT', max_length=100, null=True, blank=True)
     bank_account_header = models.CharField('Titular de la Cuenta', max_length=150)
     bank_account = models.CharField('Nro. de Cuenta', max_length=50)
+    # attribute to deal with deactivation instead of deletion 
+    # when an objetc has relationships
+    is_active = models.BooleanField(default=True, editable=False)
 
     class Meta:
         ordering = ['name']

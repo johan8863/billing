@@ -22,6 +22,9 @@ class Item(models.Model):
     name = models.CharField('Nombre', max_length=120)
     item_type = models.CharField(max_length=11, choices=ITEM_TYPES)
     price = models.FloatField('Precio')
+    # attribute to deal with deactivation instead of deletion 
+    # when an objetc has relationships
+    is_active = models.BooleanField(default=True, editable=False)
 
     class Meta:
         ordering = ['name']
