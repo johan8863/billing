@@ -29,12 +29,21 @@ class Order(models.Model):
     kit_serial = models.CharField('No. de serie o Inv.', max_length=20)
     job_description = models.TextField('Descripción del trabajo realizado', blank=True, null=True)
     items = models.ManyToManyField(Item, verbose_name='Artículo o Servicio')
-    executor = models.ForeignKey(Executor, on_delete=models.SET_NULL, null=True, verbose_name='Ejecutor')
+    executor = models.ForeignKey(
+        Executor,
+        default=Executor.objects.get(pk=1).pk,
+        on_delete=models.SET_NULL,
+        null=True,
+        verbose_name='Ejecutor'
+    )
     # customer_charge = models.CharField('Cargo', max_length=25)
     # customer_name = models.CharField('Nombre', max_length=25)
     # customer_personal_id = models.CharField('No. CI', max_length=11)
     executor_signature_date = models.DateField('Fecha')
     customer_signature_date = models.DateField('Fecha')
+    # attribute to deal with deactivation instead of deletion 
+    # when an objetc has relationships
+    is_active = models.BooleanField(default=True, editable=False)
 
     class Meta:
         ordering = ['executor_signature_date']
