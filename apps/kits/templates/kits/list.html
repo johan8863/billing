@@ -2,6 +2,60 @@
 
 {% block content %}
 
-{{kits}}
+<div class="row">
+    <div class="col-md-3">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for kit in page_obj %}
+                <tr>
+                    <td>{{kit.name}}</td>
+                    <td>
+                        <a href="#">Editar</a>
+                        <a href="#">Eliminar</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        
+    </div>
+</div>
+<nav aria-label="Page navigation example">
+            <ul class="pagination">
+                {% if page_obj.has_previous %}
+                <li class="page-item">
+                    <a class="page-link" href="?page=1">&laquo; first</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ page_obj.previous_page_number }}">previous</a>
+                </li>
+                {% endif %}
+
+                {% for page in page_obj.paginator.page_range %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{page}}">{{page}}</a>
+                </li>
+                {% endfor %}
+                <!-- <span class="current">
+                    Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+                </span> -->
+                
+                {% if page_obj.has_next %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ page_obj.next_page_number }}">next</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+                </li>
+                {% endif %}
+            </ul>
+        </nav>
 
 {% endblock content %}

@@ -9,6 +9,6 @@ from .models import Kit
 
 class KitList(generic.ListView):
     """class to list kits objects"""
-    queryset = Kit.objects.all()
-    context_object_name = 'kits'
+    model = Kit
+    paginate_by = 8
     template_name = 'kits/list.html'
