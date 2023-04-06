@@ -11,6 +11,7 @@ class Kit(models.Model):
     is_active = models.BooleanField(default=True, editable=False)
 
     class Meta:
+        ordering = ['name']
         verbose_name = "Equipo"
         verbose_name_plural = "Equipos"
     
