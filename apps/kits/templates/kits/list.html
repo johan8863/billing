@@ -1,6 +1,7 @@
-{% extends 'base.html' %}
+{% extends 'home.html' %}
 
 {% block navbar_links %}
+{% include 'snippets/dropdowns.html' %}
 <li class="nav-item">
     <a href="{% url 'kits:create_kit' %}" class="nav-link">Nuevo</a>
 </li>
@@ -8,13 +9,13 @@
 
 {% block content %}
 
-<div class="row">
+<div class="row mb-2">
     <div class="col bg-light text-center">
         <h5>Equipos</h5>
     </div>
 </div>
 
-<div class="row d-flex justify-content-center">
+<div class="row d-flex justify-content-center mb-2">
     <div class="col-md-3">
         <ul class="list-group list-group-flush text-center">
             {% for kit in page_obj %}

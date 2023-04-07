@@ -1,6 +1,7 @@
-{% extends 'base.html' %}
+{% extends 'home.html' %}
 
 {% block navbar_links %}
+{% include 'snippets/dropdowns.html' %}
 <li class="nav-item">
     <a href="{% url 'kits:list_kits' %}" class="nav-link">Equipos</a>
 </li>
