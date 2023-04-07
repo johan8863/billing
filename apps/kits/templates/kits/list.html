@@ -3,7 +3,7 @@
 {% block navbar_links %}
 {% include 'snippets/dropdowns.html' %}
 <li class="nav-item">
-    <a href="{% url 'kits:create_kit' %}" class="nav-link">Nuevo</a>
+    <a href="{% url 'kits:create' %}" class="nav-link">Nuevo</a>
 </li>
 {% endblock %}
 
@@ -16,7 +16,7 @@
         <ul class="list-group list-group-flush text-center">
             {% for kit in page_obj %}
             <a
-              href="{% url 'kits:update_kit' kit.pk %}"
+              href="{% url 'kits:update' kit.pk %}"
               class="list-group-item list-group-item-action">{{kit.name}}</a>
             {% endfor %}
         </ul>

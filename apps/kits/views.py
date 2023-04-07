@@ -21,7 +21,7 @@ class KitCreate(generic.CreateView):
     model = Kit
     fields = ['name']
     template_name = 'kits/create.html'
-    success_url = reverse_lazy('kits:list_kits')
+    success_url = reverse_lazy('kits:list')
 
 
 class KitUpdate(generic.UpdateView):
@@ -30,10 +30,10 @@ class KitUpdate(generic.UpdateView):
     context_object_name = 'kit'
     fields = ['name']
     template_name = 'kits/update.html'
-    success_url = reverse_lazy('kits:list_kits')
+    success_url = reverse_lazy('kits:list')
 
 
 class KitDelete(generic.DeleteView):
     """Class for deleting Kit objects"""
     model = Kit
-    success_url = reverse_lazy('kits:list_kits')
+    success_url = reverse_lazy('kits:list')

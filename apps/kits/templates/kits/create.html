@@ -3,7 +3,7 @@
 {% block navbar_links %}
 {% include 'snippets/dropdowns.html' %}
 <li class="nav-item">
-    <a href="{% url 'kits:list_kits' %}" class="nav-link">Equipos</a>
+    <a href="{% url 'kits:list' %}" class="nav-link">Equipos</a>
 </li>
 {% endblock %}
 
@@ -22,7 +22,7 @@
             <!-- buttons -->
             <div class="mb-2">
                 <input type="submit" class="btn btn-outline-primary btn-sm" value="Guardar">
-                <a href="{% url 'kits:list_kits' %}" class="btn btn-outline-secondary btn-sm">Cancelar</a>
+                <a href="{% url 'kits:list' %}" class="btn btn-outline-secondary btn-sm">Cancelar</a>
             </div>
         </form>
     </div>

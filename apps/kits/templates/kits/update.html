@@ -3,10 +3,10 @@
 {% block navbar_links %}
 {% include 'snippets/dropdowns.html' %}
 <li class="nav-item">
-    <a href="{% url 'kits:list_kits' %}" class="nav-link">Equipos</a>
+    <a href="{% url 'kits:list' %}" class="nav-link">Equipos</a>
 </li>
 <li class="nav-item">
-    <a href="{% url 'kits:create_kit' %}" class="nav-link">Nuevo</a>
+    <a href="{% url 'kits:create' %}" class="nav-link">Nuevo</a>
 </li>
 {% endblock %}
 
@@ -25,7 +25,7 @@
             <!-- buttons -->
             <div class="mb-2">
                 <input type="submit" class="btn btn-outline-primary btn-sm" value="Guardar">
-                <a href="{% url 'kits:list_kits' %}" class="btn btn-outline-secondary btn-sm">Cancelar</a>
+                <a href="{% url 'kits:list' %}" class="btn btn-outline-secondary btn-sm">Cancelar</a>
                 <button type="button" class="btn btn-outline-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteKitModal">
                     Eliminar
                 </button>
@@ -49,7 +49,7 @@
             <p>¿Está seguro de eliminar el equipo: {{kit.name}}?</p>
         </div>
         <div class="modal-footer">
-            <form action="{% url 'kits:delete_kit' kit.pk %}" method="post"> {% csrf_token %}
+            <form action="{% url 'kits:delete' kit.pk %}" method="post"> {% csrf_token %}
                 <input type="submit" class="btn btn-outline-danger btn-sm" value="Eliminar">
                 <button type="button" class="btn btn-outline-secondary btn-sm" data-bs-dismiss="modal">Cancelar</button>
             </form>
