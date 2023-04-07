@@ -18,10 +18,24 @@ class Item(models.Model):
         ('unmounting', 'Desmontaje'),
     ]
 
+    MEASUREMENTS = [
+        ('u', 'Uno'),
+        ('m', 'Metros'),
+        ('kg', 'Kilogramos'),
+        ('lts', 'Litros'),
+    ]
+
     code = models.CharField('Código', max_length=15)
     name = models.CharField('Nombre', max_length=120)
     item_type = models.CharField(max_length=11, choices=ITEM_TYPES)
     price = models.FloatField('Precio')
+    measurement = models.CharField(
+        'Unidad de medida',
+        max_length=3,
+        choices=MEASUREMENTS,
+        null=True,
+        blank=True
+    )
     # attribute to deal with deactivation instead of deletion 
     # when an objetc has relationships
     is_active = models.BooleanField(default=True, editable=False)
