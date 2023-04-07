@@ -24,11 +24,37 @@
             </div>
             <!-- buttons -->
             <div class="mb-2">
-                <input type="submit" class="btn btn-outline-primary" value="Guardar">
-                <a href="{% url 'kits:list_kits' %}" class="btn btn-outline-secondary">Cancelar</a>
-                <a href="{% url 'kits:delete_kit' kit.pk %}" class="btn btn-outline-danger">Eliminar</a>
+                <input type="submit" class="btn btn-outline-primary btn-sm" value="Guardar">
+                <a href="{% url 'kits:list_kits' %}" class="btn btn-outline-secondary btn-sm">Cancelar</a>
+                <button type="button" class="btn btn-outline-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteKitModal">
+                    Eliminar
+                </button>
             </div>
         </form>
+    </div>
+</div>
+
+<!-- Button trigger modal -->
+
+  
+<!-- Modal -->
+<div class="modal fade" id="deleteKitModal" tabindex="-1" aria-labelledby="deleteKitModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="deleteKitModalLabel">Modal title</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <p>¿Está seguro de eliminar el equipo: {{kit.name}}?</p>
+        </div>
+        <div class="modal-footer">
+            <form action="{% url 'kits:delete_kit' kit.pk %}" method="post"> {% csrf_token %}
+                <input type="submit" class="btn btn-outline-danger btn-sm" value="Eliminar">
+                <button type="button" class="btn btn-outline-secondary btn-sm" data-bs-dismiss="modal">Cancelar</button>
+            </form>
+        </div>
+        </div>
     </div>
 </div>
 
