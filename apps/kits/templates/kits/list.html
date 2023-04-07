@@ -1,61 +1,60 @@
 {% extends 'base.html' %}
 
+{% block navbar_links %}
+<li class="nav-item">
+    <a href="#" class="nav-link">Nuevo</a>
+</li>
+{% endblock %}
+
 {% block content %}
 
 <div class="row">
-    <div class="col-md-3 col-sm-6">
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>Nombre</th>
-                    <th>Acciones</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for kit in page_obj %}
-                <tr>
-                    <td>{{kit.name}}</td>
-                    <td>
-                        <a href="{% url 'kits:update_kit' kit.pk %}">Editar</a>
-                        <a href="#">Eliminar</a>
-                    </td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-
-        
+    <div class="col bg-light text-center">
+        <h5>Equipos</h5>
     </div>
 </div>
-<nav aria-label="Page navigation example">
-    <ul class="pagination">
-        {% if page_obj.has_previous %}
-        <li class="page-item">
-            <a class="page-link" href="?page=1">&laquo; Primero</a>
-        </li>
-        <li class="page-item">
-            <a class="page-link" href="?page={{ page_obj.previous_page_number }}">Anterior</a>
-        </li>
-        {% endif %}
 
-        {% for page in page_obj.paginator.page_range %}
-        <li class="page-item">
-            <a class="page-link" href="?page={{page}}">{{page}}</a>
-        </li>
-        {% endfor %}
-        <!-- <span class="current">
-            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
-        </span> -->
-        
-        {% if page_obj.has_next %}
-        <li class="page-item">
-            <a class="page-link" href="?page={{ page_obj.next_page_number }}">Siguiente</a>
-        </li>
-        <li class="page-item">
-            <a class="page-link" href="?page={{ page_obj.paginator.num_pages }}">Último &raquo;</a>
-        </li>
-        {% endif %}
-    </ul>
-</nav>
+<div class="row d-flex justify-content-center">
+    <div class="col-md-3">
+        <ul class="list-group list-group-flush text-center">
+            {% for kit in page_obj %}
+            <a
+              href="{% url 'kits:update_kit' kit.pk %}"
+              class="list-group-item list-group-item-action">{{kit.name}}</a>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+
+<div class="d-flex justify-content-center">
+    <nav aria-label="Page navigation example">
+        <ul class="pagination">
+            {% if page_obj.has_previous %}
+            <li class="page-item">
+                <a class="page-link" href="?page=1">&laquo; Primero</a>
+            </li>
+            <li class="page-item">
+                <a class="page-link" href="?page={{ page_obj.previous_page_number }}">Anterior</a>
+            </li>
+            {% endif %}
+    
+            {% for page in page_obj.paginator.page_range %}
+            <li class="page-item">
+                <a class="page-link" href="?page={{page}}">{{page}}</a>
+            </li>
+            {% endfor %}
+            
+            {% if page_obj.has_next %}
+            <li class="page-item">
+                <a class="page-link" href="?page={{ page_obj.next_page_number }}">Siguiente</a>
+            </li>
+            <li class="page-item">
+                <a class="page-link" href="?page={{ page_obj.paginator.num_pages }}">Último &raquo;</a>
+            </li>
+            {% endif %}
+        </ul>
+    </nav>
+</div>
+
 
 {% endblock content %}
