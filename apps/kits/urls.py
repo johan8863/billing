@@ -11,4 +11,5 @@ urlpatterns = [
     path('list/', views.KitList.as_view(), name='list_kits'),
     path('add/', views.KitCreate.as_view(), name='create_kit'),
     path('update/<int:pk>/', views.KitUpdate.as_view(), name='update_kit'),
+    path('delete/<int:pk>/', views.KitDelete.as_view(), name='delete_kit'),
 ]

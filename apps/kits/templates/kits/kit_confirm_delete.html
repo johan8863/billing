@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col bg-light text-center">
+        <h5>Equipos</h5>
+    </div>
+</div>
+
+<div class="row d-flex justify-content-center">
+    <div class="col-md-3">
+        <form method="post">{% csrf_token %}
+            <p>Confirme para eliminar "{{ object }}"</p>
+            {{ form }}
+            <input type="submit" class="btn btn-outline-danger" value="Eliminar">
+            <a href="{% url 'kits:update_kit' object.pk %}" class="btn btn-outline-secondary">Cancelar</a>
+        </form>        
+    </div>
+</div>
+
+{% endblock %}
+
