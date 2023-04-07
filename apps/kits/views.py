@@ -12,7 +12,7 @@ from .models import Kit
 class KitList(generic.ListView):
     """class for listing kits objects"""
     model = Kit
-    paginate_by = 8
+    paginate_by = 10
     template_name = 'kits/list.html'
 
 
