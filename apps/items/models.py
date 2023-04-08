@@ -42,8 +42,8 @@ class Item(models.Model):
 
     class Meta:
         ordering = ['name']
-        verbose_name = 'Elemento'
-        verbose_name_plural = 'Elementos'
+        verbose_name = 'Artículo'
+        verbose_name_plural = 'Artículos'
     
     def __str__(self):
         """Returns  the string object representation"""
