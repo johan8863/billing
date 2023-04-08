@@ -27,7 +27,7 @@ class Item(models.Model):
 
     code = models.CharField('Código', max_length=15)
     name = models.CharField('Nombre', max_length=120)
-    item_type = models.CharField(max_length=11, choices=ITEM_TYPES)
+    item_type = models.CharField('Tipo', max_length=11, choices=ITEM_TYPES)
     price = models.FloatField('Precio')
     measurement = models.CharField(
         'Unidad de medida',

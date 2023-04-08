@@ -9,4 +9,5 @@ from . import views
 app_name = 'items'
 urlpatterns = [
     path('list/', views.ItemList.as_view(), name='list'),
+    path('add/', views.ItemCreate.as_view(), name='create'),
 ]
