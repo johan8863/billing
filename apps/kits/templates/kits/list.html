@@ -9,6 +9,7 @@
 
 {% block content %}
 
+<!-- header -->
 {% include './snippets/header.html' %}
 
 <div class="row d-flex justify-content-center mb-2" style="height: 450px;">
@@ -23,34 +24,9 @@
     </div>
 </div>
 
+<!-- pagination -->
 <div class="d-flex justify-content-center">
-    <nav aria-label="Page navigation example">
-        <ul class="pagination">
-            {% if page_obj.has_previous %}
-            <li class="page-item">
-                <a class="page-link" href="?page=1">&laquo; Primero</a>
-            </li>
-            <li class="page-item">
-                <a class="page-link" href="?page={{ page_obj.previous_page_number }}">Anterior</a>
-            </li>
-            {% endif %}
-    
-            {% for page in page_obj.paginator.page_range %}
-            <li class="page-item">
-                <a class="page-link" href="?page={{page}}">{{page}}</a>
-            </li>
-            {% endfor %}
-            
-            {% if page_obj.has_next %}
-            <li class="page-item">
-                <a class="page-link" href="?page={{ page_obj.next_page_number }}">Siguiente</a>
-            </li>
-            <li class="page-item">
-                <a class="page-link" href="?page={{ page_obj.paginator.num_pages }}">Último &raquo;</a>
-            </li>
-            {% endif %}
-        </ul>
-    </nav>
+    {% include 'snippets/pagination.html' %}
 </div>
 
 
