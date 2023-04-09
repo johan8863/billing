@@ -44,3 +44,9 @@ class ItemUpdate(generic.UpdateView):
     success_url = reverse_lazy('items:list')
 
 
+class ItemDelete(generic.DeleteView):
+    """Class for deleteing Item objects."""
+    model = Item
+    success_url = reverse_lazy('items:list')
+
+

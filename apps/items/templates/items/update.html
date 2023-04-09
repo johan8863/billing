@@ -44,9 +44,37 @@
             <!-- buttons -->
             <div class="mb-2">
                 <input type="submit" value="Guardar" class="btn btn-outline-primary btn-sm">
+                {% if item.id %}
+                <button
+                  type="button"
+                  class="btn btn-outline-danger btn-sm"
+                  data-bs-toggle="modal"
+                  data-bs-target="#deleteItemModal">Eliminar</button>
+                {% endif %}
                 <a href="{% url 'items:list' %}" class="btn btn-outline-secondary btn-sm">Cancelar</a>
             </div>
         </form>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="deleteItemModal" tabindex="-1" aria-labelledby="deleteItemModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="deleteItemModalLabel">Modal title</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <p>¿Está seguro de eliminar el artículo: {{item.name}}?</p>
+        </div>
+        <div class="modal-footer">
+            <form action="{% url 'items:delete' item.pk %}" method="post"> {% csrf_token %}
+                <input type="submit" class="btn btn-outline-danger btn-sm" value="Eliminar">
+                <button type="button" class="btn btn-outline-secondary btn-sm" data-bs-dismiss="modal">Cancelar</button>
+            </form>
+        </div>
+        </div>
     </div>
 </div>
 
