@@ -10,4 +10,5 @@ app_name = 'items'
 urlpatterns = [
     path('list/', views.ItemList.as_view(), name='list'),
     path('add/', views.ItemCreate.as_view(), name='create'),
+    path('update/<int:pk>/', views.ItemUpdate.as_view(), name='update'),
 ]

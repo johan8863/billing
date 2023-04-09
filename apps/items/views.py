@@ -27,3 +27,20 @@ class ItemCreate(generic.CreateView):
     ]
     template_name = 'items/create.html'
     success_url = reverse_lazy('items:list')
+
+
+class ItemUpdate(generic.UpdateView):
+    """Class for updating Item objects"""
+    model = Item
+    context_object_name = 'item'
+    fields = [
+        "code",
+        "name",
+        "item_type",
+        "price",
+        "measurement"
+    ]
+    template_name = 'items/update.html'
+    success_url = reverse_lazy('items:list')
+
+

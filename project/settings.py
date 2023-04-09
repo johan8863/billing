@@ -44,6 +44,8 @@ INSTALLED_APPS = [
     'apps.kits',
     'apps.executors',
     'apps.orders',
+    # third
+    'widget_tweaks',
 ]
 
 MIDDLEWARE = [
