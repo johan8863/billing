@@ -20,7 +20,7 @@ class KitCreate(generic.CreateView):
     """Class for creating Kit objects"""
     model = Kit
     fields = ['name']
-    template_name = 'kits/create.html'
+    template_name = 'kits/create_or_update.html'
     success_url = reverse_lazy('kits:list')
 
 
@@ -29,7 +29,7 @@ class KitUpdate(generic.UpdateView):
     model = Kit
     context_object_name = 'kit'
     fields = ['name']
-    template_name = 'kits/update.html'
+    template_name = 'kits/create_or_update.html'
     success_url = reverse_lazy('kits:list')
 
 

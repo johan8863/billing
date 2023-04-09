@@ -58,6 +58,7 @@
 </div>
 
 <!-- Modal -->
+{% if item.id %}
 <div class="modal fade" id="deleteItemModal" tabindex="-1" aria-labelledby="deleteItemModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -77,5 +78,6 @@
         </div>
     </div>
 </div>
+{% endif %}
 
 {% endblock %}
