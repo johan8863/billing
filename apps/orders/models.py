@@ -31,7 +31,6 @@ class Order(models.Model):
     items = models.ManyToManyField(Item, verbose_name='Artículo o Servicio')
     executor = models.ForeignKey(
         Executor,
-        default=Executor.objects.get(pk=1).pk,
         on_delete=models.SET_NULL,
         null=True,
         verbose_name='Ejecutor'
