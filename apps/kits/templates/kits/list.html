@@ -12,22 +12,25 @@
 <!-- header -->
 {% include './snippets/header.html' %}
 
-<div class="row d-flex justify-content-center mb-2" style="height: 450px;">
-    <div class="col-md-3">
-        <ul class="list-group list-group-flush text-center">
-            {% for kit in page_obj %}
-            <a
-              href="{% url 'kits:update' kit.pk %}"
-              class="list-group-item list-group-item-action">{{kit.name}}</a>
-            {% endfor %}
-        </ul>
-    </div>
-</div>
+{% if page_obj %}
+<ul class="list-group list-group-flush text-center" style="height: 450px;">
+    {% for kit in page_obj %}
+    <a
+    href="{% url 'kits:update' kit.pk %}"
+    class="list-group-item list-group-item-action">{{kit.name}}</a>
+    {% endfor %}
+</ul>
 
+{% if page_obj.paginator.num_pages > 1 %}
 <!-- pagination -->
 <div class="d-flex justify-content-center">
     {% include 'snippets/pagination.html' %}
 </div>
+{% endif %}
+
+{% else %}
+<p class="lead text-center">Inserte un equipo.</p>
+{% endif %}
 
 
 {% endblock content %}
