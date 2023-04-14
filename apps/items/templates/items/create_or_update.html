@@ -13,49 +13,45 @@
 <!-- header -->
 {% include './snippets/header.html' %}
 
-<div class="row d-flex justify-content-center">
-    <div class="col-md-3">
-        <form method="post">{% csrf_token %}
-            <!-- code control -->
-            <div class="mb-2">
-                {{form.code|add_label_class:"form-label"}}
-                {{form.code|add_class:"form-control"}}
-            </div>
-            <!-- name control -->
-            <div class="mb-2">
-                {{form.name|add_label_class:"form-label"}}
-                {{form.name|add_class:"form-control"}}
-            </div>
-            <!-- item_type control -->
-            <div class="mb-2">
-                {{form.item_type|add_label_class:"form-label"}}
-                {{form.item_type|add_class:"form-select"}}
-            </div>
-            <!-- price control -->
-            <div class="mb-2">
-                {{form.price|add_label_class:"form-label"}}
-                {{form.price|add_class:"form-control"}}
-            </div>
-            <!-- measurement control -->
-            <div class="mb-2">
-                {{form.measurement|add_label_class:"form-label"}}
-                {{form.measurement|add_class:"form-select"}}
-            </div>
-            <!-- buttons -->
-            <div class="mb-2">
-                <input type="submit" value="Guardar" class="btn btn-outline-primary btn-sm">
-                {% if item.id %}
-                <button
-                  type="button"
-                  class="btn btn-outline-danger btn-sm"
-                  data-bs-toggle="modal"
-                  data-bs-target="#deleteItemModal">Eliminar</button>
-                {% endif %}
-                <a href="{% url 'items:list' %}" class="btn btn-outline-secondary btn-sm">Cancelar</a>
-            </div>
-        </form>
+<form method="post">{% csrf_token %}
+    <!-- code control -->
+    <div class="mb-2">
+        {{form.code|add_label_class:"form-label"}}
+        {{form.code|add_class:"form-control"}}
     </div>
-</div>
+    <!-- name control -->
+    <div class="mb-2">
+        {{form.name|add_label_class:"form-label"}}
+        {{form.name|add_class:"form-control"}}
+    </div>
+    <!-- item_type control -->
+    <div class="mb-2">
+        {{form.item_type|add_label_class:"form-label"}}
+        {{form.item_type|add_class:"form-select"}}
+    </div>
+    <!-- price control -->
+    <div class="mb-2">
+        {{form.price|add_label_class:"form-label"}}
+        {{form.price|add_class:"form-control"}}
+    </div>
+    <!-- measurement control -->
+    <div class="mb-2">
+        {{form.measurement|add_label_class:"form-label"}}
+        {{form.measurement|add_class:"form-select"}}
+    </div>
+    <!-- buttons -->
+    <div class="mb-2">
+        <input type="submit" value="Guardar" class="btn btn-outline-primary btn-sm">
+        {% if item.id %}
+        <button
+            type="button"
+            class="btn btn-outline-danger btn-sm"
+            data-bs-toggle="modal"
+            data-bs-target="#deleteItemModal">Eliminar</button>
+        {% endif %}
+        <a href="{% url 'items:list' %}" class="btn btn-outline-secondary btn-sm">Cancelar</a>
+    </div>
+</form>
 
 <!-- Modal -->
 {% if item.id %}
