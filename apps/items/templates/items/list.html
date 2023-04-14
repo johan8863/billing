@@ -12,21 +12,24 @@
 <!-- header -->
 {% include './snippets/header.html' %}
 
-<div class="row d-flex justify-content-center mb-2" style="height: 450px;">
-    <div class="col-md-3">
-        <ul class="list-group list-group-flush text-center">
-            {% for item in page_obj %}
-            <a
-              href="{% url 'items:update' item.pk %}"
-              class="list-group-item list-group-item-action">{{item.name}}</a>
-            {% endfor %}
-        </ul>
-    </div>
-</div>
+{% if page_obj %}
+<ul class="list-group list-group-flush text-center">
+    {% for item in page_obj %}
+    <a
+        href="{% url 'items:update' item.pk %}"
+        class="list-group-item list-group-item-action">{{item.name}}</a>
+    {% endfor %}
+</ul>
 
+{% if page_obj.paginator.num_pages > 1 %}
 <!-- pagination -->
 <div class="d-flex justify-content-center">
     {% include 'snippets/pagination.html' %}
 </div>
+{% endif %}
+
+{% else %}
+<p class="lead text-center">Inserte un artículo.</p>
+{% endif %}
 
 {% endblock %}
