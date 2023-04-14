@@ -9,4 +9,5 @@ urlpatterns = [
     path('', generic.TemplateView.as_view(template_name='home.html')),
     path('kits/', include('apps.kits.urls')),
     path('items/', include('apps.items.urls')),
+    path('executors/', include('apps.executors.urls')),
 ]
