@@ -3,7 +3,7 @@
 {% block navbar_links %}
 {% include 'snippets/dropdowns.html' %}
 <li class="nav-item">
-    <a href="#" class="nav-link">Nuevo</a>
+    <a href="{% url 'customers:create' %}" class="nav-link">Nuevo</a>
 </li>
 {% endblock %}
 

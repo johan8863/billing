@@ -1,0 +1,100 @@
+{% extends 'home.html' %}
+{% load widget_tweaks %}
+
+{% block navbar_links %}
+{% include 'snippets/dropdowns.html' %}
+<li class="nav-item">
+    <a href="{% url 'customers:list' %}" class="nav-link">Clientes</a>
+</li>
+{% endblock %}
+
+{% block content %}
+
+<!-- header -->
+{% include './snippets/header.html' %}
+
+<form method="post">{% csrf_token %}
+    <!-- customer_type control -->
+    <div class="mb-2">
+        {{form.customer_type|add_label_class:"form-label"}}
+        {{form.customer_type|add_class:"form-control"}}
+    </div>
+    <!-- name control -->
+    <div class="mb-2">
+        {{form.name|add_label_class:"form-label"}}
+        {{form.name|add_class:"form-control"}}
+    </div>
+    <!-- address control -->
+    <div class="mb-2">
+        {{form.address|add_label_class:"form-label"}}
+        {{form.address|add_class:"form-control"}}
+    </div>
+    <!-- province control -->
+    <div class="mb-2">
+        {{form.province|add_label_class:"form-label"}}
+        {{form.province|add_class:"form-control"}}
+    </div>
+    <!-- township control -->
+    <div class="mb-2">
+        {{form.township|add_label_class:"form-label"}}
+        {{form.township|add_class:"form-control"}}
+    </div>
+    <!-- code control -->
+    <div class="mb-2">
+        {{form.code|add_label_class:"form-label"}}
+        {{form.code|add_class:"form-control"}}
+    </div>
+    <!-- client_nit control -->
+    <div class="mb-2">
+        {{form.client_nit|add_label_class:"form-label"}}
+        {{form.client_nit|add_class:"form-control"}}
+    </div>
+    <!-- bank_account_header control -->
+    <div class="mb-2">
+        {{form.bank_account_header|add_label_class:"form-label"}}
+        {{form.bank_account_header|add_class:"form-control"}}
+    </div>
+    <!-- bank_account control -->
+    <div class="mb-2">
+        {{form.bank_account|add_label_class:"form-label"}}
+        {{form.bank_account|add_class:"form-control"}}
+    </div>
+    
+    <!-- buttons -->
+    <div class="mb-2">
+        <input type="submit" value="Guardar" class="btn btn-outline-primary btn-sm">
+        {% if customer.id %}
+        <button
+            type="button"
+            class="btn btn-outline-danger btn-sm"
+            data-bs-toggle="modal"
+            data-bs-target="#deleteClientModal">Eliminar</button>
+        {% endif %}
+        <a href="{% url 'customers:list' %}" class="btn btn-outline-secondary btn-sm">Cancelar</a>
+    </div>
+</form>
+
+<!-- Modal -->
+{% if customer.id %}
+<div class="modal fade" id="deleteClientModal" tabindex="-1" aria-labelledby="deleteClientModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="deleteClientModalLabel">Modal title</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <p>¿Está seguro de eliminar el cliente: {{customer.name}}?</p>
+        </div>
+        <div class="modal-footer">
+            <form action="{% url 'customers:delete' customer.pk %}" method="post"> {% csrf_token %}
+                <input type="submit" class="btn btn-outline-danger btn-sm" value="Eliminar">
+                <button type="button" class="btn btn-outline-secondary btn-sm" data-bs-dismiss="modal">Cancelar</button>
+            </form>
+        </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+
+{% endblock %}
