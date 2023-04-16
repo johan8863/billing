@@ -16,7 +16,7 @@
 <ul class="list-group list-group-flush text-center">
     {% for customer in page_obj %}
     <a
-        href="#"
+        href="{% url 'customers:update' customer.pk %}"
         class="list-group-item list-group-item-action">{{customer.name}}</a>
     {% endfor %}
 </ul>

@@ -22,3 +22,11 @@ class CustomerCreate(generic.CreateView):
     form_class = CustomerForm
     template_name = 'customers/create_or_update.html'
     success_url = reverse_lazy('customers:list')
+
+
+class CustomerUpdate(generic.UpdateView):
+    """Class for updating Customers objects"""
+    model = Customer
+    form_class = CustomerForm
+    template_name = 'customers/create_or_update.html'
+    success_url = reverse_lazy('customers:list')

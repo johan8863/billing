@@ -87,7 +87,7 @@
             <p>¿Está seguro de eliminar el cliente: {{customer.name}}?</p>
         </div>
         <div class="modal-footer">
-            <form action="{% url 'customers:delete' customer.pk %}" method="post"> {% csrf_token %}
+            <form action="" method="post"> {% csrf_token %}
                 <input type="submit" class="btn btn-outline-danger btn-sm" value="Eliminar">
                 <button type="button" class="btn btn-outline-secondary btn-sm" data-bs-dismiss="modal">Cancelar</button>
             </form>
