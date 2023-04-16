@@ -30,3 +30,9 @@ class CustomerUpdate(generic.UpdateView):
     form_class = CustomerForm
     template_name = 'customers/create_or_update.html'
     success_url = reverse_lazy('customers:list')
+
+
+class CustomerDelete(generic.DeleteView):
+    """Class for deleting Customer objects"""
+    model = Customer
+    success_url = reverse_lazy('customers:list')
