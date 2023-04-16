@@ -31,6 +31,9 @@
     </div>
     <div>
         <button type="submit" class="btn btn-outline-primary btn-sm">Guardar</button>
+        {% if executor.id %}
+        
+        {% endif %}
         <a href="{% url 'executors:list' %}" class="btn btn-outline-secondary btn-sm">Cancelar</a>
     </div>
 </form>

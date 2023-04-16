@@ -25,3 +25,15 @@ class ExecutorCreate(generic.CreateView):
     ]
     template_name = 'executors/create_or_update.html'
     success_url = reverse_lazy('executors:list')
+
+
+class ExecutorUpdate(generic.UpdateView):
+    """Class for updating Executor objects."""
+    model = Executor
+    fields = [
+        "full_name",
+        "license_number",
+        "personal_id",
+    ]
+    template_name = 'executors/create_or_update.html'
+    success_url = reverse_lazy('executors:list')

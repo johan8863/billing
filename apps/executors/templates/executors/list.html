@@ -16,7 +16,7 @@
 <ul class="list-group list-group-flush text-center" style="height: 450px;">
     {% for executor in page_obj %}
     <a
-    href="#"
+    href="{% url 'executors:update' executor.pk %}"
     class="list-group-item list-group-item-action">{{executor.full_name}}</a>
     {% endfor %}
 </ul>
