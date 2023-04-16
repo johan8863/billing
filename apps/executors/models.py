@@ -8,6 +8,9 @@ class Executor(models.Model):
     full_name = models.CharField('Nombre', max_length=150)
     license_number = models.CharField('Licencia', max_length=10)
     personal_id = models.CharField('No. CI', max_length=11)
+    # attribute to deal with deactivation instead of deletion 
+    # when an objetc has relationships
+    is_active = models.BooleanField(default=True, editable=False)
 
     class Meta:
         ordering = ['full_name']

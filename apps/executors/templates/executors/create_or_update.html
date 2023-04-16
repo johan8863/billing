@@ -1,0 +1,38 @@
+{% extends 'home.html' %}
+{% load widget_tweaks %}
+
+{% block navbar_links %}
+{% include 'snippets/dropdowns.html' %}
+<li class="nav-item">
+    <a href="{% url 'executors:list' %}" class="nav-link">Ejecutores</a>
+</li>
+{% endblock %}
+
+{% block content %}
+
+<!-- header -->
+{% include './snippets/header.html' %}
+
+<form method="post">{% csrf_token %}
+    <!-- full_name control -->
+    <div class="mb-2">
+        {{form.full_name|add_label_class:"form-label"}}
+        {{form.full_name|add_class:"form-control"}}
+    </div>
+    <!-- license_number control -->
+    <div class="mb-2">
+        {{form.license_number|add_label_class:"form-label"}}
+        {{form.license_number|add_class:"form-control"}}
+    </div>
+    <!-- personal_id control -->
+    <div class="mb-2">
+        {{form.personal_id|add_label_class:"form-label"}}
+        {{form.personal_id|add_class:"form-control"}}
+    </div>
+    <div>
+        <button type="submit" class="btn btn-outline-primary btn-sm">Guardar</button>
+        <a href="{% url 'executors:list' %}" class="btn btn-outline-secondary btn-sm">Cancelar</a>
+    </div>
+</form>
+
+{% endblock %}
