@@ -1,6 +1,7 @@
 """executors views"""
 
 # django
+from django.urls import reverse_lazy
 from django.views import generic
 
 # local
@@ -12,3 +13,15 @@ class ExecutorList(generic.ListView):
     model = Executor
     paginate_by = 10
     template_name = 'executors/list.html'
+
+
+class ExecutorCreate(generic.CreateView):
+    """Class for creating Executor objects."""
+    model = Executor
+    fields = [
+        "full_name",
+        "license_number",
+        "personal_id",
+    ]
+    template_name = 'executors/create_or_update.html'
+    success_url = reverse_lazy('executors:list')
