@@ -1,0 +1,58 @@
+{% extends 'home.html' %}
+{% load widget_tweaks %}
+
+{% block navbar_links %}
+{% include 'snippets/dropdowns.html' %}
+<li class="nav-item">
+    <a href="{% url 'orders:list' %}" class="nav-link">Órdenes de Servicio</a>
+</li>
+{% endblock %}
+
+{% block content %}
+
+{% include './snippets/header.html' %}
+
+<form method="post">{% csrf_token %}
+    <!-- name control -->
+    <div class="mb-2">
+        {{form.name|add_label_class:"form-label"}}
+        {{form.name|add_class:"form-control"}}
+    </div>
+    <!-- buttons -->
+    <div class="mb-2">
+        <input type="submit" class="btn btn-outline-primary btn-sm" value="Guardar">
+        {% if kit.id %}
+        <button
+            type="button"
+            class="btn btn-outline-danger btn-sm"
+            data-bs-toggle="modal"
+            data-bs-target="#deleteKitModal">Eliminar</button>
+        {% endif %}
+        <a href="{% url 'kits:list' %}" class="btn btn-outline-secondary btn-sm">Cancelar</a>
+    </div>
+</form>
+
+{% if kit.id %}
+<!-- Modal -->
+<div class="modal fade" id="deleteKitModal" tabindex="-1" aria-labelledby="deleteKitModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="deleteKitModalLabel">Modal title</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <p>¿Está seguro de eliminar el equipo: {{kit.name}}?</p>
+        </div>
+        <div class="modal-footer">
+            <form action="{% url 'kits:delete' kit.pk %}" method="post"> {% csrf_token %}
+                <input type="submit" class="btn btn-outline-danger btn-sm" value="Eliminar">
+                <button type="button" class="btn btn-outline-secondary btn-sm" data-bs-dismiss="modal">Cancelar</button>
+            </form>
+        </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+
+{% endblock content %}

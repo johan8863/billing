@@ -1,0 +1,36 @@
+{% extends 'home.html' %}
+
+{% block navbar_links %}
+{% include 'snippets/dropdowns.html' %}
+<li class="nav-item">
+    <a href="#" class="nav-link">Nueva</a>
+</li>
+{% endblock %}
+
+{% block content %}
+
+<!-- header -->
+{% include './snippets/header.html' %}
+
+{% if page_obj %}
+<ul class="list-group list-group-flush text-center" style="height: 450px;">
+    {% for order in page_obj %}
+    <a
+    href="#"
+    class="list-group-item list-group-item-action">{{order.customer.name}}</a>
+    {% endfor %}
+</ul>
+
+{% if page_obj.paginator.num_pages > 1 %}
+<!-- pagination -->
+<div class="d-flex justify-content-center">
+    {% include 'snippets/pagination.html' %}
+</div>
+{% endif %}
+
+{% else %}
+<p class="lead text-center">Inserte una orden.</p>
+{% endif %}
+
+
+{% endblock content %}
