@@ -106,7 +106,7 @@
     <!-- buttons -->
     <div class="mb-2">
         <input type="submit" class="btn btn-outline-primary btn-sm" value="Guardar">
-        {% if kit.id %}
+        {% if order.id %}
         <button
             type="button"
             class="btn btn-outline-danger btn-sm"
@@ -127,10 +127,10 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-            <p>¿Está seguro de eliminar el equipo: {{order.name}}?</p>
+            <p>¿Está seguro de eliminar el la orden: {{order.customer.name}}?</p>
         </div>
         <div class="modal-footer">
-            <form action="" method="post"> {% csrf_token %}
+            <form action="{% url 'orders:delete' order.pk %}" method="post"> {% csrf_token %}
                 <input type="submit" class="btn btn-outline-danger btn-sm" value="Eliminar">
                 <button type="button" class="btn btn-outline-secondary btn-sm" data-bs-dismiss="modal">Cancelar</button>
             </form>

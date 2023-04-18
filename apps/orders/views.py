@@ -30,3 +30,9 @@ class OrderUpdate(generic.UpdateView):
     form_class = OrderForm
     template_name = 'orders/create_or_update.html'
     success_url = reverse_lazy('orders:list')
+
+
+class OrderDelete(generic.DeleteView):
+    """Class for deleting Orders objects"""
+    model = Order
+    success_url = reverse_lazy('orders:list')
