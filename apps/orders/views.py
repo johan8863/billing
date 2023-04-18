@@ -22,3 +22,11 @@ class OrderCreate(generic.CreateView):
     form_class = OrderForm
     template_name = 'orders/create_or_update.html'
     success_url = reverse_lazy('orders:list')
+
+
+class OrderUpdate(generic.UpdateView):
+    """Class for updating Orders objects."""
+    model = Order
+    form_class = OrderForm
+    template_name = 'orders/create_or_update.html'
+    success_url = reverse_lazy('orders:list')
