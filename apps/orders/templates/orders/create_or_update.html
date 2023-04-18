@@ -13,10 +13,95 @@
 {% include './snippets/header.html' %}
 
 <form method="post">{% csrf_token %}
-    <!-- name control -->
+    <!-- customer control -->
     <div class="mb-2">
-        {{form.name|add_label_class:"form-label"}}
-        {{form.name|add_class:"form-control"}}
+        {{form.customer|add_label_class:"form-label"}}
+        {{form.customer|add_class:"form-control"}}
+    </div>
+    <!-- symptom control -->
+    <div class="mb-2">
+        {{form.symptom|add_label_class:"form-label"}}
+        {{form.symptom|add_class:"form-control"}}
+    </div>
+    <!-- flaw control -->
+    <div class="mb-2">
+        {{form.flaw|add_label_class:"form-label"}}
+        {{form.flaw|add_class:"form-control"}}
+    </div>
+    <!-- repair_description control -->
+    <div class="mb-2">
+        {{form.repair_description|add_label_class:"form-label"}}
+        {{form.repair_description|add_class:"form-control"}}
+    </div>
+    <!-- folio control -->
+    <div class="mb-2">
+        {{form.folio|add_label_class:"form-label"}}
+        {{form.folio|add_class:"form-control"}}
+    </div>
+    <!-- check_diagnosis control -->
+    <div class="mb-2">
+        {{form.check_diagnosis|add_label_class:"form-label"}}
+        {{form.check_diagnosis|add_class:"form-check"}}
+    </div>
+    <!-- repair control -->
+    <div class="mb-2">
+        {{form.repair|add_label_class:"form-label"}}
+        {{form.repair|add_class:"form-check"}}
+    </div>
+    <!-- install control -->
+    <div class="mb-2">
+        {{form.install|add_label_class:"form-label"}}
+        {{form.install|add_class:"form-check"}}
+    </div>
+    <!-- maintenance control -->
+    <div class="mb-2">
+        {{form.maintenance|add_label_class:"form-label"}}
+        {{form.maintenance|add_class:"form-check"}}
+    </div>
+    <!-- kit control -->
+    <div class="mb-2">
+        {{form.kit|add_label_class:"form-label"}}
+        {{form.kit|add_class:"form-control"}}
+    </div>
+    <!-- kit_brand control -->
+    <div class="mb-2">
+        {{form.kit_brand|add_label_class:"form-label"}}
+        {{form.kit_brand|add_class:"form-control"}}
+    </div>
+    <!-- kit_model control -->
+    <div class="mb-2">
+        {{form.kit_model|add_label_class:"form-label"}}
+        {{form.kit_model|add_class:"form-control"}}
+    </div>
+    <!-- kit_serial control -->
+    <div class="mb-2">
+        {{form.kit_serial|add_label_class:"form-label"}}
+        {{form.kit_serial|add_class:"form-control"}}
+    </div>
+    <!-- job_description control -->
+    <div class="mb-2">
+        {{form.job_description|add_label_class:"form-label"}}
+        {{form.job_description|add_class:"form-control"}}
+    </div>
+    <!-- items control -->
+    <div class="mb-2">
+        {{form.items|add_label_class:"form-label"}}
+        {{form.items|add_class:"form-control"}}
+    </div>
+    <!-- executor control -->
+    <div class="mb-2">
+        {{form.executor|add_label_class:"form-label"}}
+        {{form.executor|add_class:"form-control"}}
+    </div>
+    <!-- executor_signature_date control -->
+    <div class="mb-2">
+        {{form.executor_signature_date|add_label_class:"form-label"}}
+        {{form.executor_signature_date|add_class:"form-control"|attr:"type:date"}}
+    </div>
+    <!-- customer_signature_date control -->
+    <div class="mb-2">
+        {{form.customer_signature_date|add_label_class:"form-label"}}
+        {{form.customer_signature_date|add_class:"form-control"|attr:"type:date"}}
     </div>
     <!-- buttons -->
     <div class="mb-2">
@@ -28,11 +113,11 @@
             data-bs-toggle="modal"
             data-bs-target="#deleteKitModal">Eliminar</button>
         {% endif %}
-        <a href="{% url 'kits:list' %}" class="btn btn-outline-secondary btn-sm">Cancelar</a>
+        <a href="{% url 'orders:list' %}" class="btn btn-outline-secondary btn-sm">Cancelar</a>
     </div>
 </form>
 
-{% if kit.id %}
+{% if order.id %}
 <!-- Modal -->
 <div class="modal fade" id="deleteKitModal" tabindex="-1" aria-labelledby="deleteKitModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -42,10 +127,10 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-            <p>¿Está seguro de eliminar el equipo: {{kit.name}}?</p>
+            <p>¿Está seguro de eliminar el equipo: {{order.name}}?</p>
         </div>
         <div class="modal-footer">
-            <form action="{% url 'kits:delete' kit.pk %}" method="post"> {% csrf_token %}
+            <form action="" method="post"> {% csrf_token %}
                 <input type="submit" class="btn btn-outline-danger btn-sm" value="Eliminar">
                 <button type="button" class="btn btn-outline-secondary btn-sm" data-bs-dismiss="modal">Cancelar</button>
             </form>
