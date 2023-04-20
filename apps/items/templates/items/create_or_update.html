@@ -10,6 +10,8 @@
 
 {% block content %}
 
+<div class="col-md-4">
+
 <!-- header -->
 {% include './snippets/header.html' %}
 
@@ -53,6 +55,7 @@
     </div>
 </form>
 
+</div>
 <!-- Modal -->
 {% if item.id %}
 <div class="modal fade" id="deleteItemModal" tabindex="-1" aria-labelledby="deleteItemModalLabel" aria-hidden="true">

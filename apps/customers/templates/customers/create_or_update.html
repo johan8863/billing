@@ -10,69 +10,73 @@
 
 {% block content %}
 
+<div class="col-md-4">
+
 <!-- header -->
 {% include './snippets/header.html' %}
 
-<form method="post">{% csrf_token %}
-    <!-- customer_type control -->
-    <div class="mb-2">
-        {{form.customer_type|add_label_class:"form-label"}}
-        {{form.customer_type|add_class:"form-control"}}
-    </div>
-    <!-- name control -->
-    <div class="mb-2">
-        {{form.name|add_label_class:"form-label"}}
-        {{form.name|add_class:"form-control"}}
-    </div>
-    <!-- address control -->
-    <div class="mb-2">
-        {{form.address|add_label_class:"form-label"}}
-        {{form.address|add_class:"form-control"}}
-    </div>
-    <!-- province control -->
-    <div class="mb-2">
-        {{form.province|add_label_class:"form-label"}}
-        {{form.province|add_class:"form-control"}}
-    </div>
-    <!-- township control -->
-    <div class="mb-2">
-        {{form.township|add_label_class:"form-label"}}
-        {{form.township|add_class:"form-control"}}
-    </div>
-    <!-- code control -->
-    <div class="mb-2">
-        {{form.code|add_label_class:"form-label"}}
-        {{form.code|add_class:"form-control"}}
-    </div>
-    <!-- client_nit control -->
-    <div class="mb-2">
-        {{form.client_nit|add_label_class:"form-label"}}
-        {{form.client_nit|add_class:"form-control"}}
-    </div>
-    <!-- bank_account_header control -->
-    <div class="mb-2">
-        {{form.bank_account_header|add_label_class:"form-label"}}
-        {{form.bank_account_header|add_class:"form-control"}}
-    </div>
-    <!-- bank_account control -->
-    <div class="mb-2">
-        {{form.bank_account|add_label_class:"form-label"}}
-        {{form.bank_account|add_class:"form-control"}}
-    </div>
-    
-    <!-- buttons -->
-    <div class="mb-2">
-        <input type="submit" value="Guardar" class="btn btn-outline-primary btn-sm">
-        {% if customer.id %}
-        <button
-            type="button"
-            class="btn btn-outline-danger btn-sm"
-            data-bs-toggle="modal"
-            data-bs-target="#deleteClientModal">Eliminar</button>
-        {% endif %}
-        <a href="{% url 'customers:list' %}" class="btn btn-outline-secondary btn-sm">Cancelar</a>
-    </div>
-</form>
+    <form method="post">{% csrf_token %}
+        <!-- customer_type control -->
+        <div class="mb-2">
+            {{form.customer_type|add_label_class:"form-label"}}
+            {{form.customer_type|add_class:"form-control"}}
+        </div>
+        <!-- name control -->
+        <div class="mb-2">
+            {{form.name|add_label_class:"form-label"}}
+            {{form.name|add_class:"form-control"}}
+        </div>
+        <!-- address control -->
+        <div class="mb-2">
+            {{form.address|add_label_class:"form-label"}}
+            {{form.address|add_class:"form-control"}}
+        </div>
+        <!-- province control -->
+        <div class="mb-2">
+            {{form.province|add_label_class:"form-label"}}
+            {{form.province|add_class:"form-control"}}
+        </div>
+        <!-- township control -->
+        <div class="mb-2">
+            {{form.township|add_label_class:"form-label"}}
+            {{form.township|add_class:"form-control"}}
+        </div>
+        <!-- code control -->
+        <div class="mb-2">
+            {{form.code|add_label_class:"form-label"}}
+            {{form.code|add_class:"form-control"}}
+        </div>
+        <!-- client_nit control -->
+        <div class="mb-2">
+            {{form.client_nit|add_label_class:"form-label"}}
+            {{form.client_nit|add_class:"form-control"}}
+        </div>
+        <!-- bank_account_header control -->
+        <div class="mb-2">
+            {{form.bank_account_header|add_label_class:"form-label"}}
+            {{form.bank_account_header|add_class:"form-control"}}
+        </div>
+        <!-- bank_account control -->
+        <div class="mb-2">
+            {{form.bank_account|add_label_class:"form-label"}}
+            {{form.bank_account|add_class:"form-control"}}
+        </div>
+        
+        <!-- buttons -->
+        <div class="mb-2">
+            <input type="submit" value="Guardar" class="btn btn-outline-primary btn-sm">
+            {% if customer.id %}
+            <button
+                type="button"
+                class="btn btn-outline-danger btn-sm"
+                data-bs-toggle="modal"
+                data-bs-target="#deleteClientModal">Eliminar</button>
+            {% endif %}
+            <a href="{% url 'customers:list' %}" class="btn btn-outline-secondary btn-sm">Cancelar</a>
+        </div>
+    </form>
+
+</div>
 
 <!-- Modal -->
 {% if customer.id %}

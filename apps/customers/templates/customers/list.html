@@ -9,11 +9,13 @@
 
 {% block content %}
 
+<div class="col-md-4">
+
 <!-- header -->
 {% include './snippets/header.html' %}
 
 {% if page_obj %}
-<ul class="list-group list-group-flush text-center">
+<ul class="list-group list-group-flush text-center" style="height: 450px;">
     {% for customer in page_obj %}
     <a
         href="{% url 'customers:update' customer.pk %}"
@@ -31,5 +33,7 @@
 {% else %}
 <p class="lead text-center">Inserte un cliente.</p>
 {% endif %}
+
+</div>
 
 {% endblock %}

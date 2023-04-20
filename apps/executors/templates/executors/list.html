@@ -9,29 +9,31 @@
 
 {% block content %}
 
+<div class="col-md-4">
+
 <!-- header -->
 {% include './snippets/header.html' %}
 
 {% if page_obj %}
-<ul class="list-group list-group-flush text-center" style="height: 450px;">
-    {% for executor in page_obj %}
-    <a
-    href="{% url 'executors:update' executor.pk %}"
-    class="list-group-item list-group-item-action">{{executor.full_name}}</a>
-    {% endfor %}
-</ul>
+    <ul class="list-group list-group-flush text-center" style="height: 450px;">
+        {% for executor in page_obj %}
+        <a
+        href="{% url 'executors:update' executor.pk %}"
+        class="list-group-item list-group-item-action">{{executor.full_name}}</a>
+        {% endfor %}
+    </ul>
 
 {% if page_obj.paginator.num_pages > 1 %}
-<!-- pagination -->
-<div class="d-flex justify-content-center">
-    {% include 'snippets/pagination.html' %}
-</div>
+    <!-- pagination -->
+    <div class="d-flex justify-content-center">
+        {% include 'snippets/pagination.html' %}
+    </div>
 {% endif %}
 
 {% else %}
-<p class="lead text-center">Inserte un ejecutor.</p>
+    <p class="lead text-center">Inserte un ejecutor.</p>
 {% endif %}
 
-
+</div>
 
 {% endblock %}

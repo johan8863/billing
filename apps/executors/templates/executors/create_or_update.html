@@ -10,6 +10,8 @@
 
 {% block content %}
 
+<div class="col-md-4">
+
 <!-- header -->
 {% include './snippets/header.html' %}
 
@@ -41,6 +43,8 @@
         <a href="{% url 'executors:list' %}" class="btn btn-outline-secondary btn-sm">Cancelar</a>
     </div>
 </form>
+
+</div>
 
 <!-- Modal -->
 {% if executor.id %}

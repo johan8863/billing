@@ -9,29 +9,29 @@
 {% endblock %}
 
 {% block content %}
-
+<div class="col-md-4">
 {% include './snippets/header.html' %}
 
-<form method="post">{% csrf_token %}
-    <!-- name control -->
-    <div class="mb-2">
-        {{form.name|add_label_class:"form-label"}}
-        {{form.name|add_class:"form-control"}}
-    </div>
-    <!-- buttons -->
-    <div class="mb-2">
-        <input type="submit" class="btn btn-outline-primary btn-sm" value="Guardar">
-        {% if kit.id %}
-        <button
-            type="button"
-            class="btn btn-outline-danger btn-sm"
-            data-bs-toggle="modal"
-            data-bs-target="#deleteKitModal">Eliminar</button>
-        {% endif %}
-        <a href="{% url 'kits:list' %}" class="btn btn-outline-secondary btn-sm">Cancelar</a>
-    </div>
-</form>
-
+    <form method="post">{% csrf_token %}
+        <!-- name control -->
+        <div class="mb-2">
+            {{form.name|add_label_class:"form-label"}}
+            {{form.name|add_class:"form-control"}}
+        </div>
+        <!-- buttons -->
+        <div class="mb-2">
+            <input type="submit" class="btn btn-outline-primary btn-sm" value="Guardar">
+            {% if kit.id %}
+            <button
+                type="button"
+                class="btn btn-outline-danger btn-sm"
+                data-bs-toggle="modal"
+                data-bs-target="#deleteKitModal">Eliminar</button>
+            {% endif %}
+            <a href="{% url 'kits:list' %}" class="btn btn-outline-secondary btn-sm">Cancelar</a>
+        </div>
+    </form>
+</div>
 {% if kit.id %}
 <!-- Modal -->
 <div class="modal fade" id="deleteKitModal" tabindex="-1" aria-labelledby="deleteKitModalLabel" aria-hidden="true">
