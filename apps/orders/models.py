@@ -28,7 +28,7 @@ class Order(models.Model):
     kit_model = models.CharField('Modelo', max_length=20)
     kit_serial = models.CharField('No. de serie o Inv.', max_length=20)
     job_description = models.TextField('Descripción del trabajo realizado', blank=True, null=True)
-    items = models.ManyToManyField(Item, verbose_name='Artículo o Servicio')
+    items = models.ManyToManyField(Item, through='ItemTimes', verbose_name='Artículo o Servicio')
     executor = models.ForeignKey(
         Executor,
         on_delete=models.SET_NULL,
@@ -52,3 +52,11 @@ class Order(models.Model):
     def __str__(self):
         """Returns  the string object representation"""
         return self.customer.name
+
+
+
+class ItemTimes(models.Model):
+    """Class to register how many items go in an order"""
+    item = models.ForeignKey(Item, on_delete=models.CASCADE)
+    order = models.ForeignKey(Order, on_delete=models.CASCADE)
+    times = models.PositiveIntegerField('Cantidad', null=True, blank=True)
