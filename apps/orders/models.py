@@ -59,4 +59,12 @@ class ItemTimes(models.Model):
     """Class to register how many items go in an order"""
     item = models.ForeignKey(Item, on_delete=models.CASCADE)
     order = models.ForeignKey(Order, on_delete=models.CASCADE)
-    times = models.PositiveIntegerField('Cantidad', null=True, blank=True)
+    times = models.PositiveIntegerField('Cantidad', default=1)
+
+    class Meta:
+        verbose_name = 'Cantidad de Artículo'
+        verbose_name_plural = 'Cantidades de Artículo'
+    
+    def __str__(self):
+        """Returns  the string object representation"""
+        return self.item.name + ' - ' + self.order.customer.name
