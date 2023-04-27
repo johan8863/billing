@@ -20,17 +20,39 @@
     <div class="mb-2">
         {{form.full_name|add_label_class:"form-label"}}
         {{form.full_name|add_class:"form-control"}}
+        {% if form.full_name.errors %}
+        <ul>
+            {% for error in form.full_name.errors %}
+                <li class="form-text text-danger">{{error}}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
     </div>
     <!-- license_number control -->
     <div class="mb-2">
         {{form.license_number|add_label_class:"form-label"}}
         {{form.license_number|add_class:"form-control"}}
+        {% if form.license_number.errors %}
+        <ul>
+            {% for error in form.license_number.errors %}
+                <li class="form-text text-danger">{{error}}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
     </div>
     <!-- personal_id control -->
     <div class="mb-2">
         {{form.personal_id|add_label_class:"form-label"}}
         {{form.personal_id|add_class:"form-control"}}
+        {% if form.personal_id.errors %}
+        <ul>
+            {% for error in form.personal_id.errors %}
+                <li class="form-text text-danger">{{error}}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
     </div>
+    <!-- buttons -->
     <div>
         <button type="submit" class="btn btn-outline-primary btn-sm">Guardar</button>
         {% if executor.id %}

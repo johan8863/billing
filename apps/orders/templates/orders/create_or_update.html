@@ -18,93 +18,219 @@
         <div class="col-md-3 mb-2">
             {{form.customer|add_label_class:"form-label"}}
             {{form.customer|add_class:"form-control"}}
+            {% if form.customer.errors %}
+            <ul>
+                {% for error in form.customer.errors %}
+                    <li class="form-text text-danger">{{error}}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
         </div>
         <!-- symptom control -->
         <div class="col-md-3 mb-2">
             {{form.symptom|add_label_class:"form-label"}}
             {{form.symptom|add_class:"form-control"}}
+            {% if form.symptom.errors %}
+            <ul>
+                {% for error in form.symptom.errors %}
+                    <li class="form-text text-danger">{{error}}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
         </div>
         <!-- flaw control -->
         <div class="col-md-3 mb-2">
             {{form.flaw|add_label_class:"form-label"}}
             {{form.flaw|add_class:"form-control"}}
+            {% if form.flaw.errors %}
+            <ul>
+                {% for error in form.flaw.errors %}
+                    <li class="form-text text-danger">{{error}}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
         </div>
         <!-- repair_description control -->
         <div class="col-md-3 mb-2">
             {{form.repair_description|add_label_class:"form-label"}}
             {{form.repair_description|add_class:"form-control"}}
+            {% if form.repair_description.errors %}
+            <ul>
+                {% for error in form.repair_description.errors %}
+                    <li class="form-text text-danger">{{error}}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
         </div>
         <!-- folio control -->
         <div class="col-md-3 mb-2">
             {{form.folio|add_label_class:"form-label"}}
             {{form.folio|add_class:"form-control"}}
+            {% if form.folio.errors %}
+            <ul>
+                {% for error in form.folio.errors %}
+                    <li class="form-text text-danger">{{error}}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
         </div>
         <div class="col-md-9"></div>
         <!-- check_diagnosis control -->
         <div class="col-md-2 mb-2">
             {{form.check_diagnosis|add_label_class:"form-label"}}
             {{form.check_diagnosis|add_class:"form-check"}}
+            {% if form.check_diagnosis.errors %}
+            <ul>
+                {% for error in form.check_diagnosis.errors %}
+                    <li class="form-text text-danger">{{error}}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
         </div>
         <!-- repair control -->
         <div class="col-md-2 mb-2">
             {{form.repair|add_label_class:"form-label"}}
             {{form.repair|add_class:"form-check"}}
+            {% if form.repair.errors %}
+            <ul>
+                {% for error in form.repair.errors %}
+                    <li class="form-text text-danger">{{error}}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
         </div>
         <!-- install control -->
         <div class="col-md-2 mb-2">
             {{form.install|add_label_class:"form-label"}}
             {{form.install|add_class:"form-check"}}
+            {% if form.install.errors %}
+            <ul>
+                {% for error in form.install.errors %}
+                    <li class="form-text text-danger">{{error}}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
         </div>
         <!-- maintenance control -->
         <div class="col-md-2 mb-2">
             {{form.maintenance|add_label_class:"form-label"}}
             {{form.maintenance|add_class:"form-check"}}
+            {% if form.maintenance.errors %}
+            <ul>
+                {% for error in form.maintenance.errors %}
+                    <li class="form-text text-danger">{{error}}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
         </div>
         <div class="col-md-4"></div>
         <!-- kit control -->
         <div class="col-md-3 mb-2">
             {{form.kit|add_label_class:"form-label"}}
             {{form.kit|add_class:"form-control"}}
+            {% if form.kit.errors %}
+            <ul>
+                {% for error in form.kit.errors %}
+                    <li class="form-text text-danger">{{error}}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
         </div>
         <!-- kit_brand control -->
         <div class="col-md-3 mb-2">
             {{form.kit_brand|add_label_class:"form-label"}}
             {{form.kit_brand|add_class:"form-control"}}
+            {% if form.kit_brand.errors %}
+            <ul>
+                {% for error in form.kit_brand.errors %}
+                    <li class="form-text text-danger">{{error}}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
         </div>
         <!-- kit_model control -->
         <div class="col-md-3 mb-2">
             {{form.kit_model|add_label_class:"form-label"}}
             {{form.kit_model|add_class:"form-control"}}
+            {% if form.kit_model.errors %}
+            <ul>
+                {% for error in form.kit_model.errors %}
+                    <li class="form-text text-danger">{{error}}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
         </div>
         <!-- kit_serial control -->
         <div class="col-md-3 mb-2">
             {{form.kit_serial|add_label_class:"form-label"}}
             {{form.kit_serial|add_class:"form-control"}}
+            {% if form.kit_serial.errors %}
+            <ul>
+                {% for error in form.kit_serial.errors %}
+                    <li class="form-text text-danger">{{error}}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
         </div>
         <!-- job_description control -->
         <div class="col-md-8 offset-md-2 mb-2">
             {{form.job_description|add_label_class:"form-label"}}
             {{form.job_description|add_class:"form-control"}}
+            {% if form.job_description.errors %}
+            <ul>
+                {% for error in form.job_description.errors %}
+                    <li class="form-text text-danger">{{error}}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
         </div>
         <!-- items control -->
         <div class="col-md-8 offset-md-2 mb-2">
             {{form.items|add_label_class:"form-label"}}
             {{form.items|add_class:"form-control"}}
+            {% if form.items.errors %}
+            <ul>
+                {% for error in form.items.errors %}
+                    <li class="form-text text-danger">{{error}}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
         </div>
         <!-- executor control -->
         <div class="col-md-3 mb-2">
             {{form.executor|add_label_class:"form-label"}}
             {{form.executor|add_class:"form-control"}}
+            {% if form.executor.errors %}
+            <ul>
+                {% for error in form.executor.errors %}
+                    <li class="form-text text-danger">{{error}}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
         </div>
         <!-- executor_signature_date control -->
         <div class="col-md-3 mb-2">
             {{form.executor_signature_date|add_label_class:"form-label"}}
             {{form.executor_signature_date|add_class:"form-control"|attr:"type:date"}}
+            {% if form.executor_signature_date.errors %}
+            <ul>
+                {% for error in form.executor_signature_date.errors %}
+                    <li class="form-text text-danger">{{error}}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
         </div>
         <!-- customer_signature_date control -->
         <div class="col-md-3 mb-2">
             {{form.customer_signature_date|add_label_class:"form-label"}}
             {{form.customer_signature_date|add_class:"form-control"|attr:"type:date"}}
+            {% if form.customer_signature_date.errors %}
+            <ul>
+                {% for error in form.customer_signature_date.errors %}
+                    <li class="form-text text-danger">{{error}}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
         </div>
         <!-- buttons -->
         <div class="mb-2">

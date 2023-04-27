@@ -20,26 +20,61 @@
     <div class="mb-2">
         {{form.code|add_label_class:"form-label"}}
         {{form.code|add_class:"form-control"}}
+        {% if form.code.errors %}
+        <ul>
+            {% for error in form.code.errors %}
+                <li class="form-text text-danger">{{error}}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
     </div>
     <!-- name control -->
     <div class="mb-2">
         {{form.name|add_label_class:"form-label"}}
         {{form.name|add_class:"form-control"}}
+        {% if form.name.errors %}
+        <ul>
+            {% for error in form.name.errors %}
+                <li class="form-text text-danger">{{error}}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
     </div>
     <!-- item_type control -->
     <div class="mb-2">
         {{form.item_type|add_label_class:"form-label"}}
         {{form.item_type|add_class:"form-select"}}
+        {% if form.item_type.errors %}
+        <ul>
+            {% for error in form.item_type.errors %}
+                <li class="form-text text-danger">{{error}}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
     </div>
     <!-- price control -->
     <div class="mb-2">
         {{form.price|add_label_class:"form-label"}}
         {{form.price|add_class:"form-control"}}
+        {% if form.price.errors %}
+        <ul>
+            {% for error in form.price.errors %}
+                <li class="form-text text-danger">{{error}}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
     </div>
     <!-- measurement control -->
     <div class="mb-2">
         {{form.measurement|add_label_class:"form-label"}}
         {{form.measurement|add_class:"form-select"}}
+        {% if form.measurement.errors %}
+            <ul>
+                {% for error in form.measurement.errors %}
+                    <li class="form-text text-danger">{{error}}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
     </div>
     <!-- buttons -->
     <div class="mb-2">

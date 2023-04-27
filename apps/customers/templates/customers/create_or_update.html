@@ -20,46 +20,109 @@
         <div class="mb-2">
             {{form.customer_type|add_label_class:"form-label"}}
             {{form.customer_type|add_class:"form-control"}}
+            {% if form.customer_type.errors %}
+            <ul>
+                {% for error in form.customer_type.errors %}
+                    <li class="form-text text-danger">{{error}}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
         </div>
         <!-- name control -->
         <div class="mb-2">
             {{form.name|add_label_class:"form-label"}}
             {{form.name|add_class:"form-control"}}
+            {% if form.name.errors %}
+            <ul>
+                {% for error in form.name.errors %}
+                    <li class="form-text text-danger">{{error}}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
         </div>
         <!-- address control -->
         <div class="mb-2">
             {{form.address|add_label_class:"form-label"}}
             {{form.address|add_class:"form-control"}}
+            {% if form.address.errors %}
+            <ul>
+                {% for error in form.address.errors %}
+                    <li class="form-text text-danger">{{error}}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
         </div>
         <!-- province control -->
         <div class="mb-2">
             {{form.province|add_label_class:"form-label"}}
             {{form.province|add_class:"form-control"}}
+            {% if form.province.errors %}
+            <ul>
+                {% for error in form.province.errors %}
+                    <li class="form-text text-danger">{{error}}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
         </div>
         <!-- township control -->
         <div class="mb-2">
             {{form.township|add_label_class:"form-label"}}
             {{form.township|add_class:"form-control"}}
+            {% if form.township.errors %}
+        <ul>
+            {% for error in form.township.errors %}
+                <li class="form-text text-danger">{{error}}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
         </div>
         <!-- code control -->
         <div class="mb-2">
             {{form.code|add_label_class:"form-label"}}
             {{form.code|add_class:"form-control"}}
+            {% if form.code.errors %}
+        <ul>
+            {% for error in form.code.errors %}
+                <li class="form-text text-danger">{{error}}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
         </div>
         <!-- client_nit control -->
         <div class="mb-2">
             {{form.client_nit|add_label_class:"form-label"}}
             {{form.client_nit|add_class:"form-control"}}
+            {% if form.client_nit.errors %}
+        <ul>
+            {% for error in form.client_nit.errors %}
+                <li class="form-text text-danger">{{error}}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
         </div>
         <!-- bank_account_header control -->
         <div class="mb-2">
             {{form.bank_account_header|add_label_class:"form-label"}}
             {{form.bank_account_header|add_class:"form-control"}}
+            {% if form.bank_account_header.errors %}
+        <ul>
+            {% for error in form.bank_account_header.errors %}
+                <li class="form-text text-danger">{{error}}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
         </div>
         <!-- bank_account control -->
         <div class="mb-2">
             {{form.bank_account|add_label_class:"form-label"}}
             {{form.bank_account|add_class:"form-control"}}
+            {% if form.bank_account.errors %}
+        <ul>
+            {% for error in form.bank_account.errors %}
+                <li class="form-text text-danger">{{error}}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
         </div>
         
         <!-- buttons -->

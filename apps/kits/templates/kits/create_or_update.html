@@ -17,6 +17,13 @@
         <div class="mb-2">
             {{form.name|add_label_class:"form-label"}}
             {{form.name|add_class:"form-control"}}
+            {% if form.name.errors %}
+            <ul>
+                {% for error in form.name.errors %}
+                    <li class="form-text text-danger">{{error}}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
         </div>
         <!-- buttons -->
         <div class="mb-2">
