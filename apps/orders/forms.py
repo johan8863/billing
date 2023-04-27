@@ -11,9 +11,7 @@ class OrderForm(forms.ModelForm):
     """ModelForm Class for Orders objects."""
     class Meta:
         model = Order
-        exclude = [
-            'is_active',
-        ]
+        fields = '__all__'
         widgets = {
             'executor_signature_date': forms.DateInput(
                 format=('%Y-%m-%d'),
