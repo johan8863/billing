@@ -5,6 +5,7 @@ from django import forms
 
 # local
 from .models import Order
+from ..items.models import Item
 
 
 class OrderForm(forms.ModelForm):
@@ -20,3 +21,7 @@ class OrderForm(forms.ModelForm):
                 format=('%Y-%m-%d'),
                 ),
         }
+    # items = forms.ModelMultipleChoiceField(
+    #     queryset=Item.objects.all(),
+    #     widget=forms.CheckboxSelectMultiple
+    # )

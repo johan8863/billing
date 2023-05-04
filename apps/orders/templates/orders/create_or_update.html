@@ -13,7 +13,9 @@
 
 {% include './snippets/header.html' %}
 
-    <form method="post" class="row">{% csrf_token %}
+    <form method="post" class="row">
+        {% csrf_token %}
+        {{ formset.management_form }}
         <!-- customer control -->
         <div class="col-md-3 mb-2">
             {{form.customer|add_label_class:"form-label"}}
@@ -184,10 +186,27 @@
             </ul>
             {% endif %}
         </div>
-        <!-- items control -->
+        <!-- items_times control -->
         <div class="col-md-8 offset-md-2 mb-2">
-            {{form.items|add_label_class:"form-label"}}
-            {{form.items|add_class:"form-control"}}
+        <!-- {{formset}} -->
+        {% for form in formset %}
+        <div class="row">
+            <div class="col-md-10">
+                {{form.item|add_label_class:"form-label"}}
+                {{form.item|add_class:"form-control"}}
+            </div>
+            <div class="col-md">
+                {{form.times|add_label_class:"form-label"}}
+                {{form.times|add_class:"form-control"}}
+            </div>
+        </div>
+        {% endfor %}
+        </div>
+
+        <!-- <div class="col-md-8 offset-md-2 mb-2">
+            {% for item in form.items %}
+            {{item}}
+            {% endfor %}
             {% if form.items.errors %}
             <ul>
                 {% for error in form.items.errors %}
@@ -195,7 +214,7 @@
                 {% endfor %}
             </ul>
             {% endif %}
-        </div>
+        </div> -->
         <!-- executor control -->
         <div class="col-md-3 mb-2">
             {{form.executor|add_label_class:"form-label"}}
