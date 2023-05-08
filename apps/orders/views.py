@@ -83,20 +83,6 @@ class OrderUpdate(generic.UpdateView):
 
         if form.is_valid() and formset.is_valid():
             print('valid')
-            # order = Order(**form.cleaned_data)
-            # order.save()
-
-            # for form in formset:
-            #     if form.cleaned_data.get('item'):
-            #         item = form.cleaned_data.get('item')
-            #         times = form.cleaned_data.get('times')
-            #         item_times = ItemTimes(
-            #             item = item,
-            #             order = order,
-            #             times = times,
-            #         )
-            #         item_times.save()
-            
             return redirect(self.success_url)
         else:
             print(formset.errors)
