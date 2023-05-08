@@ -193,7 +193,7 @@
         <div class="row">
             <div class="col-md-10">
                 {{form.item|add_label_class:"form-label"}}
-                {{form.item|add_class:"form-control"}}
+                {{form.item|add_class:"form-select"}}
             </div>
             <div class="col-md">
                 {{form.times|add_label_class:"form-label"}}
@@ -202,19 +202,6 @@
         </div>
         {% endfor %}
         </div>
-
-        <!-- <div class="col-md-8 offset-md-2 mb-2">
-            {% for item in form.items %}
-            {{item}}
-            {% endfor %}
-            {% if form.items.errors %}
-            <ul>
-                {% for error in form.items.errors %}
-                    <li class="form-text text-danger">{{error}}</li>
-                {% endfor %}
-            </ul>
-            {% endif %}
-        </div> -->
         <!-- executor control -->
         <div class="col-md-3 mb-2">
             {{form.executor|add_label_class:"form-label"}}

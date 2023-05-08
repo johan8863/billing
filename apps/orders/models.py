@@ -62,8 +62,8 @@ class Order(models.Model):
 
 class ItemTimes(models.Model):
     """Class to register how many items go in an order"""
-    item = models.ForeignKey(Item, on_delete=models.CASCADE, verbose_name="Artículo")
-    order = models.ForeignKey(Order, on_delete=models.CASCADE)
+    item = models.ForeignKey(Item, on_delete=models.CASCADE, verbose_name="Artículo", null=True, blank=True)
+    order = models.ForeignKey(Order, on_delete=models.CASCADE, null=True, blank=True)
     times = models.PositiveIntegerField('Cantidad', default=1)
 
     class Meta:
