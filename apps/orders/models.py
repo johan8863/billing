@@ -32,7 +32,8 @@ class Order(models.Model):
         Item,
         through='ItemTimes',
         verbose_name='Artículo o Servicio',
-        editable=False
+        editable=False,
+        blank=True
     )
     executor = models.ForeignKey(
         Executor,

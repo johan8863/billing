@@ -81,9 +81,8 @@ class OrderUpdate(generic.UpdateView):
         ItemTimesFormSet = modelformset_factory(ItemTimes, exclude=['order'], extra=5)
         formset = ItemTimesFormSet(request.POST)
 
-        if form.is_valid():
-            for form in formset:
-                print(form)
+        if form.is_valid() and formset.is_valid():
+            print('valid')
             # order = Order(**form.cleaned_data)
             # order.save()
 
