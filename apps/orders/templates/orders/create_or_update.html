@@ -191,6 +191,7 @@
         <!-- {{formset}} -->
         {% for form in formset %}
         <div class="row">
+            {{form.id}}
             <div class="col-md-10">
                 {{form.item|add_label_class:"form-label"}}
                 {{form.item|add_class:"form-select"}}
