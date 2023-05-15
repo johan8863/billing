@@ -21,7 +21,3 @@ class OrderForm(forms.ModelForm):
                 format=('%Y-%m-%d'),
                 ),
         }
-    # items = forms.ModelMultipleChoiceField(
-    #     queryset=Item.objects.all(),
-    #     widget=forms.CheckboxSelectMultiple
-    # )
