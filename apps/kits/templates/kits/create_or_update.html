@@ -15,8 +15,8 @@
     <form method="post">{% csrf_token %}
         <!-- name control -->
         <div class="mb-2">
-            {{form.name|add_label_class:"form-label"}}
-            {{form.name|add_class:"form-control"}}
+            <label for="id_name" class="form-label">{{form.name.label}}</label>
+            {{form.name}}
             {% if form.name.errors %}
             <ul>
                 {% for error in form.name.errors %}

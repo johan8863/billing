@@ -6,6 +6,7 @@ from django.urls import reverse_lazy
 from django.views import generic
 
 # local
+from .forms import KitForm
 from .models import Kit
 
 
@@ -19,7 +20,7 @@ class KitList(generic.ListView):
 class KitCreate(generic.CreateView):
     """Class for creating Kit objects"""
     model = Kit
-    fields = ['name']
+    form_class = KitForm
     template_name = 'kits/create_or_update.html'
     success_url = reverse_lazy('kits:list')
 
