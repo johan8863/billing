@@ -76,7 +76,7 @@ class OrderUpdate(generic.UpdateView):
     def post(self, request, **kwargs):
         order = Order.objects.get(pk=kwargs['pk'])
         form = self.form_class(request.POST, instance=order)
-        ItemTimesFormSet = modelformset_factory(ItemTimes, exclude=['order'], extra=5, absolute_max=100) # remember explaining this in a validation...
+        ItemTimesFormSet = modelformset_factory(ItemTimes, exclude=['order'], extra=5)
         formset = ItemTimesFormSet(request.POST)
 
         if form.is_valid() and formset.is_valid():
