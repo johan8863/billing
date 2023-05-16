@@ -1,4 +1,5 @@
 {% extends 'home.html' %}
+{% load widget_tweaks %}
 
 {% block navbar_links %}
 {% include 'snippets/dropdowns.html' %}
@@ -14,8 +15,8 @@
     <form method="post">{% csrf_token %}
         <!-- name control -->
         <div class="mb-2">
-            <label for="id_name" class="form-label">{{form.name.label}}</label>
-            {{form.name}}
+            {{form.name|add_label_class:"form-label"}}
+            {{form.name|add_class:"form-control"}}
             {% if form.name.errors %}
             <ul>
                 {% for error in form.name.errors %}

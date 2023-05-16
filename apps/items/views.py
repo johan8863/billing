@@ -18,13 +18,7 @@ class ItemList(generic.ListView):
 class ItemCreate(generic.CreateView):
     """Class for creating Item objects"""
     model = Item
-    fields = [
-        "code",
-        "name",
-        "item_type",
-        "price",
-        "measurement"
-    ]
+    fields = "__all__"
     template_name = 'items/create_or_update.html'
     success_url = reverse_lazy('items:list')
 
@@ -33,13 +27,7 @@ class ItemUpdate(generic.UpdateView):
     """Class for updating Item objects"""
     model = Item
     context_object_name = 'item'
-    fields = [
-        "code",
-        "name",
-        "item_type",
-        "price",
-        "measurement"
-    ]
+    fields = "__all__"
     template_name = 'items/create_or_update.html'
     success_url = reverse_lazy('items:list')
 
