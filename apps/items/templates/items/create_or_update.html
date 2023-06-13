@@ -40,6 +40,18 @@
         </ul>
         {% endif %}
     </div>
+    <!-- measurement control -->
+    <div class="mb-2">
+        {{form.measurement|add_label_class:"form-label"}}
+        {{form.measurement|add_class:"form-select"}}
+        {% if form.measurement.errors %}
+            <ul>
+                {% for error in form.measurement.errors %}
+                    <li class="form-text text-danger">{{error}}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+    </div>
     <!-- item_type control -->
     <div class="mb-2">
         {{form.item_type|add_label_class:"form-label"}}
@@ -64,18 +76,7 @@
         </ul>
         {% endif %}
     </div>
-    <!-- measurement control -->
-    <div class="mb-2">
-        {{form.measurement|add_label_class:"form-label"}}
-        {{form.measurement|add_class:"form-select"}}
-        {% if form.measurement.errors %}
-            <ul>
-                {% for error in form.measurement.errors %}
-                    <li class="form-text text-danger">{{error}}</li>
-                {% endfor %}
-            </ul>
-            {% endif %}
-    </div>
+    
     <!-- buttons -->
     <div class="mb-2">
         <input type="submit" value="Guardar" class="btn btn-outline-primary btn-sm">
