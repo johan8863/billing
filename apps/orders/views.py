@@ -70,7 +70,8 @@ class OrderUpdate(generic.UpdateView):
 
         return render(request, self.template_name, {
             'form': self.form_class(instance=order),
-            'formset': formset
+            'formset': formset,
+            'order': order
         })
     
     def post(self, request, **kwargs):
